@@ -37,7 +37,7 @@ class DataBaseHelper: NSObject {
             return result
         }
         
-        // Construct names
+        // Construct
         while sqlite3_step(statement) == SQLITE_ROW {
             var airport: Airport = Airport()
             airport.icao = String(cString: sqlite3_column_text(statement, 0));
@@ -51,4 +51,29 @@ class DataBaseHelper: NSObject {
         
         return result
     }
+    
+    func getCountries() -> [String] {
+        
+        // Empty array
+        var result = [String]();
+        
+        // Query
+        let query = "SELECT iso_country FROM airports;"
+        
+        // Prepare query and execute
+        var statement : OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, query, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db))
+            print("error query: \(errmsg)")
+            return result
+        }
+        
+        // Construct
+        while sqlite3_step(statement) == SQLITE_ROW {
+           result.append(String(cString: sqlite3_column_text(statement, 0)))
+        }
+        
+        return result
+    }
+    
 }

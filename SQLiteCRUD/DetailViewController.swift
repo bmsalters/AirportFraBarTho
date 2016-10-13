@@ -22,12 +22,11 @@ class DetailViewController: UIViewController {
         let currentAirport = CLLocation(latitude: (airport?.latitude)!, longitude: (airport?.longitude)!)
         let regionRadius : CLLocationDistance = 1000
         
-        
         nameLabel.text = airport?.name
         distanceLabel.text = String(schipholAirport.distance(from: currentAirport) / 1000) + "km";
         
         func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,                                                            regionRadius * 10000.0, regionRadius * 10000.0)
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 10000.0, regionRadius * 10000.0)
             mapView.setRegion(coordinateRegion, animated: true)
         }
         
@@ -39,10 +38,10 @@ class DetailViewController: UIViewController {
         dropPin.title = airport?.name
         mapView.addAnnotation(dropPin)
         
-//        let currentAirportLocation = CLLocationCoordinate2DMake(52.3094593, 4.7600949)swag
-//        let dropPin2 = MKPointAnnotation()
-//        dropPin2.coordinate = currentAirportLocation
-//        dropPin2.title = "Amsterdam Schiphol"
-//        mapView.addAnnotation(dropPin2)
+        let currentAirportLocation = CLLocationCoordinate2DMake(52.3094593, 4.7600949)
+        let dropPin2 = MKPointAnnotation()
+        dropPin2.coordinate = currentAirportLocation
+        dropPin2.title = "Amsterdam Schiphol"
+        mapView.addAnnotation(dropPin2)
     }
 }

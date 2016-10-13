@@ -10,6 +10,7 @@ import UIKit
 
 class PersonTableTableViewController: UITableViewController {
     var airports : [Airport] = []
+    var countries : [String] = []
     @IBAction func refresh(_ sender: UIRefreshControl) {
     
         // Connect to db
@@ -26,15 +27,12 @@ class PersonTableTableViewController: UITableViewController {
         sender.endRefreshing()
     }
     
+    @IBOutlet weak var pickerView: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        countries = DataBaseHelper.sharedInstance.getCountries()
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,5 +83,20 @@ class PersonTableTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countries.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return countries[row]
     }
 }
