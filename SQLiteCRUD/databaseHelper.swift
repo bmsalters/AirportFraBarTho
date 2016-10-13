@@ -42,10 +42,10 @@ class DataBaseHelper: NSObject {
             var airport: Airport = Airport()
             airport.icao = String(cString: sqlite3_column_text(statement, 0));
             airport.name = String(cString: sqlite3_column_text(statement, 1));
-            airport.iso_country = String(cString: sqlite3_column_text(statement, 2));
-            airport.longitude = Double(String(cString: sqlite3_column_text(statement, 3)));
-            airport.latitude = Double(String(cString: sqlite3_column_text(statement, 4)));
-            airport.elevation = Double(String(cString: sqlite3_column_text(statement, 5)));
+            airport.iso_country = String(cString: sqlite3_column_text(statement, 5));
+            airport.longitude = Double(String(cString: sqlite3_column_text(statement, 2)));
+            airport.latitude = Double(String(cString: sqlite3_column_text(statement, 3)));
+            airport.elevation = Double(String(cString: sqlite3_column_text(statement, 4)));
             result.append(airport)
         }
         
