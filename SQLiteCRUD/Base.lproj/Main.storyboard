@@ -19,11 +19,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8w9-Uw-14u" id="Ikb-Lu-XeL">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vrV-z3-F8b">
-                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -96,6 +96,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="distanceLabel" destination="Zlc-Yg-Tao" id="lZb-6h-XO0"/>
                         <outlet property="mapView" destination="cHh-2s-UhJ" id="y3B-eP-NWd"/>
                         <outlet property="nameLabel" destination="fEq-iO-sdp" id="0pR-5B-eLt"/>
                     </connections>
