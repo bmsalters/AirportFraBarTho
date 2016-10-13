@@ -7,29 +7,28 @@
 //
 
 import UIKit
-
+import MapKit
+import CoreLocation
 class DetailViewController: UIViewController {
+    
+    let schipholAirport = CLLocation(latitude: 51.5719, longitude:4.7683);
+    let currentAirport = CLLocation(latitude: -43.5320, longitude:172.6362);
+
     public var airport : Airport?
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let schipholAirport = CLLocation(latitude: 52.3094593, longitude: 4.7600949)
+        let currentAirport = CLLocation(latitude: (airport?.latitude)!, longitude: (airport?.longitude)!)
+        let regionRadius : CLLocationDistance = 1000
+        nameLabel.text = airport?.name
+//        CLLocationDistance distanceInMeters = [schipholAirport distanceFromLocation: currentAirport]
+        
+        var distanceInM = schipholAirport.distance(from: currentAirport);
+        
+        centerMapOnLocation(location: schipholAirport)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -64,12 +64,45 @@
                     <view key="view" contentMode="scaleToFill" id="BSg-9y-fL7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-2s-UhJ"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEq-iO-sdp" userLabel="Name Labe">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="oAl-AW-0H6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlc-Yg-Tao" userLabel="Distance Label">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="og2-jB-tQP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zlc-Yg-Tao" firstAttribute="centerX" secondItem="BSg-9y-fL7" secondAttribute="centerX" id="ZoD-7t-4b7"/>
+                            <constraint firstAttribute="trailing" secondItem="cHh-2s-UhJ" secondAttribute="trailing" id="h34-j0-MXV"/>
+                            <constraint firstItem="cHh-2s-UhJ" firstAttribute="leading" secondItem="BSg-9y-fL7" secondAttribute="leading" id="hIg-Yf-wlI"/>
+                            <constraint firstItem="Zlc-Yg-Tao" firstAttribute="top" secondItem="fEq-iO-sdp" secondAttribute="bottom" constant="20" id="i5Q-5W-rJ9"/>
+                            <constraint firstItem="fEq-iO-sdp" firstAttribute="top" secondItem="FiI-Gp-SuH" secondAttribute="bottom" constant="30" id="iGg-fy-Mut"/>
+                            <constraint firstItem="cHh-2s-UhJ" firstAttribute="top" secondItem="Zlc-Yg-Tao" secondAttribute="bottom" constant="30" id="qPT-fY-STg"/>
+                            <constraint firstItem="axd-92-R9h" firstAttribute="top" secondItem="cHh-2s-UhJ" secondAttribute="bottom" id="qXW-3z-tln"/>
+                            <constraint firstItem="fEq-iO-sdp" firstAttribute="centerX" secondItem="BSg-9y-fL7" secondAttribute="centerX" id="xqo-mk-Hvj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="cHh-2s-UhJ" id="y3B-eP-NWd"/>
+                        <outlet property="nameLabel" destination="fEq-iO-sdp" id="0pR-5B-eLt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0c-Ph-DiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="134"/>
+            <point key="canvasLocation" x="469.60000000000002" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
