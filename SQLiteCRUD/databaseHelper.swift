@@ -60,7 +60,7 @@ class DataBaseHelper: NSObject {
         // Query
         let query = "SELECT DISTINCT iso_country FROM airports;"
         
-        // Prepare query and execute
+        // Prepare query and executed
         var statement : OpaquePointer? = nil
         if sqlite3_prepare_v2(db, query, -1, &statement, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db))
