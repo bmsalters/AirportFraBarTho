@@ -11,7 +11,7 @@
 		C75699BB1DA67714003AE7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75699B91DA67714003AE7FC /* Main.storyboard */; };
 		C75699BD1DA67714003AE7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75699BC1DA67714003AE7FC /* Assets.xcassets */; };
 		C75699C01DA67714003AE7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75699BE1DA67714003AE7FC /* LaunchScreen.storyboard */; };
-		C75699D01DA67BA2003AE7FC /* databaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75699CF1DA67BA2003AE7FC /* databaseHelper.swift */; };
+		C75699D01DA67BA2003AE7FC /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75699CF1DA67BA2003AE7FC /* DatabaseHelper.swift */; };
 		C75699D31DA68219003AE7FC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C75699C81DA67820003AE7FC /* libsqlite3.tbd */; };
 		C75699D51DA689F5003AE7FC /* PersonTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75699D41DA689F5003AE7FC /* PersonTableTableViewController.swift */; };
 		CC6B8DB01DAF85A30096C69F /* airports.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CC6B8DAF1DAF85A30096C69F /* airports.sqlite */; };
@@ -28,7 +28,7 @@
 		C75699C11DA67714003AE7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C75699C81DA67820003AE7FC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C75699CC1DA67A02003AE7FC /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		C75699CF1DA67BA2003AE7FC /* databaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = databaseHelper.swift; sourceTree = "<group>"; };
+		C75699CF1DA67BA2003AE7FC /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		C75699D41DA689F5003AE7FC /* PersonTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableTableViewController.swift; sourceTree = "<group>"; };
 		CC6B8DAF1DAF85A30096C69F /* airports.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airports.sqlite; sourceTree = "<group>"; };
 		CC6B8DB21DAF87210096C69F /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 				C75699BE1DA67714003AE7FC /* LaunchScreen.storyboard */,
 				C75699C11DA67714003AE7FC /* Info.plist */,
 				C75699CC1DA67A02003AE7FC /* Bridging-Header.h */,
-				C75699CF1DA67BA2003AE7FC /* databaseHelper.swift */,
+				C75699CF1DA67BA2003AE7FC /* DatabaseHelper.swift */,
 				C75699D41DA689F5003AE7FC /* PersonTableTableViewController.swift */,
 				CC6B8DB41DAF9BEA0096C69F /* DetailViewController.swift */,
 			);
@@ -171,7 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C75699D01DA67BA2003AE7FC /* databaseHelper.swift in Sources */,
+				C75699D01DA67BA2003AE7FC /* DatabaseHelper.swift in Sources */,
 				CC6B8DB31DAF87210096C69F /* Airport.swift in Sources */,
 				CC6B8DB51DAF9BEA0096C69F /* DetailViewController.swift in Sources */,
 				C75699D51DA689F5003AE7FC /* PersonTableTableViewController.swift in Sources */,

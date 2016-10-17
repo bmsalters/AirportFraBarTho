@@ -58,7 +58,7 @@ class DataBaseHelper: NSObject {
         var result = [String]();
         
         // Query
-        let query = "SELECT iso_country FROM airports;"
+        let query = "SELECT DISTINCT iso_country FROM airports;"
         
         // Prepare query and execute
         var statement : OpaquePointer? = nil

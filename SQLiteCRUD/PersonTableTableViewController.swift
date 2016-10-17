@@ -8,31 +8,19 @@
 
 import UIKit
 
-class PersonTableTableViewController: UITableViewController {
+class PersonTableTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+
     var airports : [Airport] = []
     var countries : [String] = []
-    @IBAction func refresh(_ sender: UIRefreshControl) {
-    
-        // Connect to db
-        let database = DataBaseHelper.sharedInstance
-        
-        // Generate Joe Doe with random number ...
-        let randomNum:UInt32 = 100 + arc4random_uniform(200) // range is 0 to 99
-        //database.create(firstname: "John", lastname: "Doe_" + String(randomNum));
-        
-        // Reload the tableview
-        self.tableView.reloadData()
-        
-        // End the refresh
-        sender.endRefreshing()
-    }
-    
+       
     @IBOutlet weak var pickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         countries = DataBaseHelper.sharedInstance.getCountries()
+        pickerView.delegate = self;
+        
+        //pickerView.dataSource = countries
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,17 +74,19 @@ class PersonTableTableViewController: UITableViewController {
     }
     
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    
+    @available(iOS 2.0, *)
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return countries.count
     }
     
     // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return countries[row]
     }
 }
