@@ -17,6 +17,10 @@
 		CC6B8DB01DAF85A30096C69F /* airports.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CC6B8DAF1DAF85A30096C69F /* airports.sqlite */; };
 		CC6B8DB31DAF87210096C69F /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B8DB21DAF87210096C69F /* Airport.swift */; };
 		CC6B8DB51DAF9BEA0096C69F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B8DB41DAF9BEA0096C69F /* DetailViewController.swift */; };
+		CCF3DF7C1DB7605D00864AEC /* airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF3DF7B1DB7605D00864AEC /* airplane.png */; };
+		CCF3DF801DB7661F00864AEC /* rsz_airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF3DF7F1DB7661F00864AEC /* rsz_airplane.png */; };
+		CCF3DF821DB76CB800864AEC /* rsz_airplane-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF3DF811DB76CB800864AEC /* rsz_airplane-2.png */; };
+		CCF3DF861DB78A6900864AEC /* PlaneAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3DF851DB78A6900864AEC /* PlaneAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		CC6B8DAF1DAF85A30096C69F /* airports.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airports.sqlite; sourceTree = "<group>"; };
 		CC6B8DB21DAF87210096C69F /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		CC6B8DB41DAF9BEA0096C69F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CCF3DF7B1DB7605D00864AEC /* airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane.png; sourceTree = "<group>"; };
+		CCF3DF7F1DB7661F00864AEC /* rsz_airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_airplane.png; sourceTree = "<group>"; };
+		CCF3DF811DB76CB800864AEC /* rsz_airplane-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rsz_airplane-2.png"; sourceTree = "<group>"; };
+		CCF3DF851DB78A6900864AEC /* PlaneAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,9 @@
 		C75699B41DA67714003AE7FC /* SQLiteCRUD */ = {
 			isa = PBXGroup;
 			children = (
+				CCF3DF811DB76CB800864AEC /* rsz_airplane-2.png */,
+				CCF3DF7F1DB7661F00864AEC /* rsz_airplane.png */,
+				CCF3DF7B1DB7605D00864AEC /* airplane.png */,
 				CC6B8DB11DAF87060096C69F /* Models */,
 				CC6B8DAF1DAF85A30096C69F /* airports.sqlite */,
 				C75699B51DA67714003AE7FC /* AppDelegate.swift */,
@@ -78,6 +89,7 @@
 				C75699CF1DA67BA2003AE7FC /* DatabaseHelper.swift */,
 				C75699D41DA689F5003AE7FC /* PersonTableTableViewController.swift */,
 				CC6B8DB41DAF9BEA0096C69F /* DetailViewController.swift */,
+				CCF3DF851DB78A6900864AEC /* PlaneAnnotation.swift */,
 			);
 			path = SQLiteCRUD;
 			sourceTree = "<group>";
@@ -157,10 +169,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF3DF7C1DB7605D00864AEC /* airplane.png in Resources */,
+				CCF3DF821DB76CB800864AEC /* rsz_airplane-2.png in Resources */,
 				C75699C01DA67714003AE7FC /* LaunchScreen.storyboard in Resources */,
 				C75699BD1DA67714003AE7FC /* Assets.xcassets in Resources */,
 				CC6B8DB01DAF85A30096C69F /* airports.sqlite in Resources */,
 				C75699BB1DA67714003AE7FC /* Main.storyboard in Resources */,
+				CCF3DF801DB7661F00864AEC /* rsz_airplane.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75699D01DA67BA2003AE7FC /* DatabaseHelper.swift in Sources */,
+				CCF3DF861DB78A6900864AEC /* PlaneAnnotation.swift in Sources */,
 				CC6B8DB31DAF87210096C69F /* Airport.swift in Sources */,
 				CC6B8DB51DAF9BEA0096C69F /* DetailViewController.swift in Sources */,
 				C75699D51DA689F5003AE7FC /* PersonTableTableViewController.swift in Sources */,
