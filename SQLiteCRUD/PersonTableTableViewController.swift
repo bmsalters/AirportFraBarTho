@@ -8,18 +8,18 @@
 
 import UIKit
 
-class PersonTableTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class PersonTableTableViewController: UITableViewController, UISearchBarDelegate, UIPickerViewDelegate {
 
     var airports : [Airport] = []
-    var countries : [String] = []
-       
-    @IBOutlet weak var pickerView: UIPickerView!
-    
+    var filtered:[Airport] = []
+    @IBOutlet weak var searchBar: UISearchBar!
+    var searchActive : Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        countries = DataBaseHelper.sharedInstance.getCountries()
-        pickerView.delegate = self;
-        
+                airports = DataBaseHelper.sharedInstance.read()
+        //pickerView.delegate = self;
+        searchBar.delegate = self;
         //pickerView.dataSource = countries
     }
 
@@ -27,6 +27,48 @@ class PersonTableTableViewController: UITableViewController, UIPickerViewDataSou
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+         filtered = airports.filter() {
+            if let iso_country = ($0 as Airport).iso_country! as String? {
+                var found = iso_country.contains(searchText)
+                if found {
+                    return found
+                }
+                else
+                {
+                    if let name = ($0 as Airport).name! as String? {
+                        return name.contains(searchText)
+                    }
+                }
+            }
+            
+        }
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
+    }
+    
 
     // MARK: - Table view data source
 
@@ -37,16 +79,26 @@ class PersonTableTableViewController: UITableViewController, UIPickerViewDataSou
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return DataBaseHelper.sharedInstance.read().count
+        if(searchActive) {
+            return filtered.count
+        }
+        return airports.count;
     }
+//        return DataBaseHelper.sharedInstance.read().count
+//    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nameCell", for: indexPath)
 
         // Configure the cell...
-        airports = DataBaseHelper.sharedInstance.read()
-        cell.textLabel?.text = airports[indexPath.row].name;
+        if(!searchActive){
+            cell.textLabel?.text = airports[indexPath.row].iso_country! + " - " + airports[indexPath.row].name!;
+        } else {
+            cell.textLabel?.text = filtered[indexPath.row].iso_country! + " - " + filtered[indexPath.row].name!;
+        }
+
+//        cell.textLabel?.text = airports[indexPath.row].iso_country! + " - " + airports[indexPath.row].name!;
 
         return cell
     }
@@ -65,9 +117,14 @@ class PersonTableTableViewController: UITableViewController, UIPickerViewDataSou
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     
                     // Pass person to detailed view
-                    let airport = airports[(indexPath as NSIndexPath).row]
-                    destination.airport = airport
-                    
+                    if searchActive {
+                        let airport = filtered[(indexPath as NSIndexPath).row]
+                        destination.airport = airport
+                    }
+                    else {
+                        let airport = airports[(indexPath as NSIndexPath).row]
+                        destination.airport = airport
+                    }
                 }
             }
         }
@@ -78,15 +135,5 @@ class PersonTableTableViewController: UITableViewController, UIPickerViewDataSou
     @available(iOS 2.0, *)
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
-    }
-
-    // The number of rows of data
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return countries.count
-    }
-    
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countries[row]
     }
 }

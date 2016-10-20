@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C75699B11DA67714003AE7FC"
-               BuildableName = "SQLiteCRUD.app"
-               BlueprintName = "SQLiteCRUD"
-               ReferencedContainer = "container:SQLiteCRUD.xcodeproj">
+               BuildableName = "AirportApp.app"
+               BlueprintName = "AirportApp"
+               ReferencedContainer = "container:AirportApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C75699B11DA67714003AE7FC"
-            BuildableName = "SQLiteCRUD.app"
-            BlueprintName = "SQLiteCRUD"
-            ReferencedContainer = "container:SQLiteCRUD.xcodeproj">
+            BuildableName = "AirportApp.app"
+            BlueprintName = "AirportApp"
+            ReferencedContainer = "container:AirportApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C75699B11DA67714003AE7FC"
-            BuildableName = "SQLiteCRUD.app"
-            BlueprintName = "SQLiteCRUD"
-            ReferencedContainer = "container:SQLiteCRUD.xcodeproj">
+            BuildableName = "AirportApp.app"
+            BlueprintName = "AirportApp"
+            ReferencedContainer = "container:AirportApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C75699B11DA67714003AE7FC"
-            BuildableName = "SQLiteCRUD.app"
-            BlueprintName = "SQLiteCRUD"
-            ReferencedContainer = "container:SQLiteCRUD.xcodeproj">
+            BuildableName = "AirportApp.app"
+            BlueprintName = "AirportApp"
+            ReferencedContainer = "container:AirportApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

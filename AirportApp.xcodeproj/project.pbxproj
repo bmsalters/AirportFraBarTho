@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C75699B21DA67714003AE7FC /* SQLiteCRUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLiteCRUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C75699B21DA67714003AE7FC /* AirportApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirportApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75699B51DA67714003AE7FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C75699BA1DA67714003AE7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C75699BC1DA67714003AE7FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		C75699B31DA67714003AE7FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C75699B21DA67714003AE7FC /* SQLiteCRUD.app */,
+				C75699B21DA67714003AE7FC /* AirportApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,9 +113,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C75699B11DA67714003AE7FC /* SQLiteCRUD */ = {
+		C75699B11DA67714003AE7FC /* AirportApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C75699C41DA67714003AE7FC /* Build configuration list for PBXNativeTarget "SQLiteCRUD" */;
+			buildConfigurationList = C75699C41DA67714003AE7FC /* Build configuration list for PBXNativeTarget "AirportApp" */;
 			buildPhases = (
 				C75699AE1DA67714003AE7FC /* Sources */,
 				C75699AF1DA67714003AE7FC /* Frameworks */,
@@ -125,9 +125,9 @@
 			);
 			dependencies = (
 			);
-			name = SQLiteCRUD;
+			name = AirportApp;
 			productName = SQLiteCRUD;
-			productReference = C75699B21DA67714003AE7FC /* SQLiteCRUD.app */;
+			productReference = C75699B21DA67714003AE7FC /* AirportApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -146,7 +146,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C75699AD1DA67714003AE7FC /* Build configuration list for PBXProject "SQLiteCRUD" */;
+			buildConfigurationList = C75699AD1DA67714003AE7FC /* Build configuration list for PBXProject "AirportApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -159,7 +159,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C75699B11DA67714003AE7FC /* SQLiteCRUD */,
+				C75699B11DA67714003AE7FC /* AirportApp */,
 			);
 		};
 /* End PBXProject section */
@@ -341,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C75699AD1DA67714003AE7FC /* Build configuration list for PBXProject "SQLiteCRUD" */ = {
+		C75699AD1DA67714003AE7FC /* Build configuration list for PBXProject "AirportApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C75699C21DA67714003AE7FC /* Debug */,
@@ -350,7 +350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C75699C41DA67714003AE7FC /* Build configuration list for PBXNativeTarget "SQLiteCRUD" */ = {
+		C75699C41DA67714003AE7FC /* Build configuration list for PBXNativeTarget "AirportApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C75699C51DA67714003AE7FC /* Debug */,

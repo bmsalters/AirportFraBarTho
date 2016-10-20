@@ -2,7 +2,7 @@
 //  DetailViewController.swift
 //  SQLiteCRUD
 //
-//  Created by Frank Molengraaf on 13/10/2016.
+//  Created by FraBarTho on 13/10/2016.
 //
 
 import UIKit
@@ -16,8 +16,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         @IBOutlet weak var distanceLabel: UILabel!
         var planeAnnotation: MKPointAnnotation!
         var planeAnnotationPosition = 0
-    var polyline:MKGeodesicPolyline!
-    
+        var polyline:MKGeodesicPolyline!
+        var planeDirection: CLLocationDirection = 0.0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let schipholAirport = CLLocation(latitude: 52.3094593, longitude: 4.7600949)
@@ -28,6 +29,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         nameLabel.text = airport?.name
         distanceLabel.text = String(schipholAirport.distance(from: currentAirport) / 1000) + "km";
 
+        //Define centerMaOn method.
         func centerMapOnLocation(location: CLLocation){
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
             mapView.setRegion(coordinateRegion, animated: true)
@@ -35,6 +37,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
         centerMapOnLocation(location: currentAirport)
         
+        //Calculate avg coordinates.
         let avgLat = (schipholAirport.coordinate.latitude + currentAirport.coordinate.latitude)/2
         let avglon = (schipholAirport.coordinate.longitude + currentAirport.coordinate.longitude)/2
         
@@ -42,18 +45,15 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
 
         
         // Add mappoints to Map
-        let schipholAirportLocation = CLLocationCoordinate2DMake((airport?.latitude)!, (airport?.longitude)!)
         let dropPin = MKPointAnnotation()
-        dropPin.coordinate = schipholAirportLocation
+        dropPin.coordinate = schipholAirport.coordinate
         dropPin.title = airport?.name
         mapView.addAnnotation(dropPin)
         
-        let currentAirportLocation = CLLocationCoordinate2DMake(52.3094593, 4.7600949)
         let dropPin2 = MKPointAnnotation()
-        dropPin2.coordinate = currentAirportLocation
+        dropPin2.coordinate = currentAirport.coordinate
         dropPin2.title = "Amsterdam Schiphol"
         mapView.addAnnotation(dropPin2)
-//        mapView.showAnnotations(self.mapView.annotations, animated: true)
         
 
         
@@ -82,6 +82,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
     }
     
+    
+    //Delegate for drawing the view of the annotations
+    //If plane then use UIImage else use default.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
         let planeIdentifier = "Plane"
@@ -89,30 +92,59 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
         if annotation is CustomPlaneAnnotation {
             annotationView.image = UIImage.init(named: "rsz_airplane-2.png")
-
+            
+            annotationView.transform = mapView.transform.rotated(by: CGFloat(degreesToRadians(degrees: planeDirection)))
+            
+            
+            //annotationView.transform = CGAffineTransformRotate(mapView.transform,degreesToRadians(planeDirection))
+            
             return annotationView
         }
-        //self.view.addSubview(annotationView)
         return nil
     }
     
+    //Update the plane position over the time.
     func updatePlanePosition() {
         let step = 25
         guard planeAnnotationPosition + step < polyline.pointCount
             else { return }
         
         let points = polyline.points()
+        
+        let previousMapPoint = points[planeAnnotationPosition]
         self.planeAnnotationPosition += step
         let nextMapPoint = points[planeAnnotationPosition]
         
         self.planeAnnotation.coordinate = MKCoordinateForMapPoint(nextMapPoint)
-        
+        self.planeDirection = directionBetweenPoints(sourcePoint: previousMapPoint, destinationPoint: nextMapPoint)
         perform(#selector(DetailViewController.updatePlanePosition), with: nil, afterDelay: 0.03)
+        
+        
+    }
+    
+    private func directionBetweenPoints(sourcePoint: MKMapPoint,  destinationPoint: MKMapPoint) -> CLLocationDirection {
+        let x = destinationPoint.x - sourcePoint.x
+        let y = destinationPoint.y - sourcePoint.y
+        
+        var degrees = 90.0 - (radiansToDegrees(radians: atan2(y,x)));
+        
+        if( degrees < 0.0 )
+        {
+            degrees += 360.0;
+        }
+        return degrees;
+    }
+    
+    private func radiansToDegrees(radians: Double) -> Double {
+        return radians * 180 / M_PI
+    }
+    
+    private func degreesToRadians(degrees: Double) -> Double {
+        return degrees * M_PI / 180
     }
     
     
-    //MARK:- MapViewDelegate methods
-    
+    //Renderer for the overlay items, in this case the GeoPolyLine.
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         
